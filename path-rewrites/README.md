@@ -6,7 +6,7 @@ To distinguish your services, you'll need to use the path on the request to rout
 
 Ex.
 
-Caller's request would look like this:
+Caller's request to nginx would look like this:
 
 ```
 GET /connector-service-1/abc
@@ -14,6 +14,14 @@ Host: your.domain.name
 ```
 
 Backend service's request would look like this:
+
 ```
-TODO
+GET /abc
+Host: your.domain.name
+Upgrade: something
+Connection: upgrade
+X-Forwarded-For: 192.168.100.123
+X-Forwarded-Proto: http
+X-Forwarded-Port: 80
+X-Forwarded-Path: /connector-service-1
 ```
